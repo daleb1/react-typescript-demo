@@ -1,6 +1,12 @@
 import './App.css';
 import { Greet } from './components/Greet'
 import { Person } from './components/Person'
+import { PersonList } from './components/PersonList'
+import { Status } from './components/Status'
+import { Heading } from './components/Heading'
+import { Oscar } from './components/Oscar'
+import { Button } from './components/Button'
+import { Input } from './components/Input'
 
 
 function App() {
@@ -8,10 +14,36 @@ function App() {
     first: 'Bruce',
     last: 'Wayne',
   }
+
+  const nameList = [
+    {
+      first: 'Bruce',
+      last: 'Wayne',
+    },
+    {
+      first: 'Clark',
+      last: 'Kent',
+    },
+    {
+      first: 'Princess',
+      last: 'Diana',
+    }
+  ]
+
   return (
     <div className='App'>
-      <Greet name='Dale' messageCount={20} isLoggedIn={false}/>
       <Person name={personName} />
+      <PersonList names={nameList} />
+      <Status status='loading' />
+      <Heading>Placeholder text</Heading>
+      <Oscar>
+        <Heading>The Oscar award goes to Leonardo Dicaprio!</Heading>
+      </Oscar>
+      <Greet name='Dale' isLoggedIn={false}/>
+      <Button handleClick={(event, id) =>
+        console.log('Button clicked', event,id)
+        }/>
+      <Input value='' handleChange={event => console.log(event)} />
     </div>
   );
 }
